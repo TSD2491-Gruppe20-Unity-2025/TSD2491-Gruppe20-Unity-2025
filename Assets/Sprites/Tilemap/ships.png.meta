@@ -120,7 +120,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -173,9 +173,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 168
-        width: 33
-        height: 26
+        y: 165
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,9 +195,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 33
-        y: 168
+        y: 165
         width: 32
-        height: 26
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: ships_2
       rect:
         serializedVersion: 2
-        x: 65
-        y: 168
-        width: 34
-        height: 26
+        x: 66
+        y: 165
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +238,10 @@ TextureImporter:
       name: ships_3
       rect:
         serializedVersion: 2
-        x: 98
-        y: 169
-        width: 33
-        height: 25
+        x: 99
+        y: 165
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: ships_4
       rect:
         serializedVersion: 2
-        x: 3
-        y: 137
-        width: 26
-        height: 21
+        x: 0
+        y: 132
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -283,9 +283,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 33
-        y: 137
+        y: 132
         width: 32
-        height: 21
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,10 +304,10 @@ TextureImporter:
       name: ships_6
       rect:
         serializedVersion: 2
-        x: 70
-        y: 138
-        width: 24
-        height: 20
+        x: 66
+        y: 132
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,10 +326,10 @@ TextureImporter:
       name: ships_7
       rect:
         serializedVersion: 2
-        x: 100
-        y: 135
-        width: 30
-        height: 25
+        x: 99
+        y: 132
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -348,10 +348,10 @@ TextureImporter:
       name: ships_8
       rect:
         serializedVersion: 2
-        x: 2
-        y: 106
-        width: 28
-        height: 18
+        x: 0
+        y: 99
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -370,10 +370,10 @@ TextureImporter:
       name: ships_9
       rect:
         serializedVersion: 2
-        x: 36
-        y: 105
-        width: 26
-        height: 19
+        x: 33
+        y: 99
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,10 +392,10 @@ TextureImporter:
       name: ships_10
       rect:
         serializedVersion: 2
-        x: 71
-        y: 105
-        width: 22
-        height: 19
+        x: 66
+        y: 99
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -414,10 +414,10 @@ TextureImporter:
       name: ships_11
       rect:
         serializedVersion: 2
-        x: 102
-        y: 105
-        width: 26
-        height: 19
+        x: 99
+        y: 99
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -437,9 +437,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 69
-        width: 33
-        height: 26
+        y: 66
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -459,9 +459,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 33
-        y: 69
+        y: 66
         width: 32
-        height: 26
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -480,10 +480,10 @@ TextureImporter:
       name: ships_14
       rect:
         serializedVersion: 2
-        x: 65
-        y: 69
-        width: 34
-        height: 26
+        x: 66
+        y: 66
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -502,10 +502,10 @@ TextureImporter:
       name: ships_15
       rect:
         serializedVersion: 2
-        x: 98
-        y: 70
-        width: 33
-        height: 25
+        x: 99
+        y: 66
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -524,10 +524,10 @@ TextureImporter:
       name: ships_16
       rect:
         serializedVersion: 2
-        x: 3
-        y: 38
-        width: 26
-        height: 21
+        x: 0
+        y: 33
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -547,9 +547,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 33
-        y: 38
+        y: 33
         width: 32
-        height: 21
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -568,10 +568,10 @@ TextureImporter:
       name: ships_18
       rect:
         serializedVersion: 2
-        x: 70
-        y: 39
-        width: 24
-        height: 20
+        x: 66
+        y: 33
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -590,10 +590,10 @@ TextureImporter:
       name: ships_19
       rect:
         serializedVersion: 2
-        x: 100
-        y: 36
-        width: 30
-        height: 25
+        x: 99
+        y: 33
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -612,10 +612,10 @@ TextureImporter:
       name: ships_20
       rect:
         serializedVersion: 2
-        x: 2
-        y: 7
-        width: 28
-        height: 18
+        x: 0
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -634,10 +634,10 @@ TextureImporter:
       name: ships_21
       rect:
         serializedVersion: 2
-        x: 36
-        y: 6
-        width: 26
-        height: 19
+        x: 33
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -656,10 +656,10 @@ TextureImporter:
       name: ships_22
       rect:
         serializedVersion: 2
-        x: 71
-        y: 6
-        width: 22
-        height: 19
+        x: 66
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -678,10 +678,10 @@ TextureImporter:
       name: ships_23
       rect:
         serializedVersion: 2
-        x: 102
-        y: 6
-        width: 26
-        height: 19
+        x: 99
+        y: 0
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -700,7 +700,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: b68de196ce30f134c8c0aa3fe1f49384
     internalID: 0
     vertices: []
     indices: 
@@ -709,7 +709,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ships_0: -6877657737085974523
+      ships_1: 5913295629867518172
+      ships_10: -8084874238274840218
+      ships_11: 2794418158759056727
+      ships_12: -4648857032059535507
+      ships_13: -2304959186403469882
+      ships_14: 8119249936409394056
+      ships_15: 2884177739413884887
+      ships_16: -1986511610909899991
+      ships_17: 7513193811518922645
+      ships_18: -1369133203827550807
+      ships_19: 2171436348842804110
+      ships_2: 8383162673023287823
+      ships_20: 4402405062159405059
+      ships_21: 552870395930637983
+      ships_22: -3781714281351162041
+      ships_23: 4107702307641232175
+      ships_3: -8825041670847906069
+      ships_4: 3118750061902332518
+      ships_5: -6718432988787895233
+      ships_6: -797168720777067150
+      ships_7: -4522987028584636881
+      ships_8: -7653039100333099308
+      ships_9: 8714212296651016187
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
