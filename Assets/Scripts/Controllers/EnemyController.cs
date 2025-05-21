@@ -34,13 +34,7 @@ public abstract class EnemyController : MonoBehaviour
 
     private void HandleHit(Collider2D other)
     {
-        // Hit by bullet
-        if (other.CompareTag("PlayerBullet"))
-        {
-            TakeDamage(1);
-            Destroy(other.gameObject);
-        }
-
+     
         // Touched by player
         if (other.CompareTag("Player"))
         {
@@ -53,7 +47,7 @@ public abstract class EnemyController : MonoBehaviour
                 PlayerController pc = player.GetComponent<PlayerController>();
                 if (pc != null)
                 {
-                    pc.TakeDamage(1);   // Damage the player
+                    //pc.TakeDamage(1);   // Damage the player
                     TakeDamage(1);      // Damage the enemy
                     lastDamageTime[player] = Time.time;
                 }

@@ -6,7 +6,7 @@ public class EnemyBasic : EnemyController
 
     void Start()
     {
-        health = 3;
+        health = 1;
     }
 
     void Update()

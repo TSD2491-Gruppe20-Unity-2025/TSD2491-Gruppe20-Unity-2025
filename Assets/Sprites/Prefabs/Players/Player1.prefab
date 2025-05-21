@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9134662902825821896}
   m_Layer: 3
   m_Name: Player1
-  m_TagString: Enemy
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,11 +47,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80aefbfc34406d843b1a183425fd531e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerUI: {fileID: 0}
   moveSpeed: 10
   minBounds: {x: -99, y: -99}
   maxBounds: {x: 99, y: 99}
-  health: 3
   contactDamageCooldown: 1
+  maxHealth: 9
+  startHealth: 9
+  uiScript: {fileID: 0}
 --- !u!50 &3289274825510623707
 Rigidbody2D:
   serializedVersion: 5
