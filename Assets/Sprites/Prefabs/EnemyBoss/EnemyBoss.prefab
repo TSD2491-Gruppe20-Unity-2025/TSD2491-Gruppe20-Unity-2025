@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6000067689557759488}
   - component: {fileID: 5885884360457659083}
   - component: {fileID: 47287464051014726}
+  - component: {fileID: 6436832179881204373}
   m_Layer: 6
   m_Name: EnemyBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,8 +130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca751b9ac110d5542b71296ba1445e07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
-  contactDamageCooldown: 1
   enterSpeed: 1.5
   moveSpeed: 2
   moveRange: 3
@@ -180,3 +179,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &6436832179881204373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7748687285996582971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996732d201f244b00ae04a357cf7f44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefabOverride: {fileID: 7787628100138976922, guid: f9bb2d7197925413db272b4165b6e23b, type: 3}
+  firePointOverride: {fileID: 0}
+  overrideCooldown: 0.1
+  ownerTag: 
+  projectileTag: 

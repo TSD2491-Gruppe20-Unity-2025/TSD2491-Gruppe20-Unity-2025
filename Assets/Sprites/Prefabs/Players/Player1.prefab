@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3289274825510623707}
   - component: {fileID: 4829469459295135316}
   - component: {fileID: 9134662902825821896}
+  - component: {fileID: 2921252907040411453}
   m_Layer: 3
   m_Name: Player1
   m_TagString: Player
@@ -183,3 +184,20 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &2921252907040411453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8252014161694782153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996732d201f244b00ae04a357cf7f44a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefabOverride: {fileID: 7787628100138976922, guid: f9bb2d7197925413db272b4165b6e23b, type: 3}
+  firePointOverride: {fileID: 0}
+  overrideCooldown: 0.1
+  ownerTag: 
+  projectileTag: 

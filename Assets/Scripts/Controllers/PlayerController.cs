@@ -25,6 +25,8 @@ public class PlayerController : MonoBehaviour
     private InputSystem_Actions inputActions;
     private Vector2 movement;
     private Rigidbody2D rb;
+    private BaseWeapon weapon;
+
 
     private bool canMove = false;
 
@@ -36,6 +38,8 @@ public class PlayerController : MonoBehaviour
         inputActions = new InputSystem_Actions();
         rb = GetComponent<Rigidbody2D>();
         CurrentHealth = Mathf.Clamp(startHealth, 0, maxHealth);
+        weapon = GetComponent<BaseWeapon>();
+
     }
 
     public void AssignUI(UIScript ui)
@@ -52,11 +56,14 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         inputActions?.Enable();
+        inputActions.Player.Action1.performed += ctx => FireWeapon();
+
     }
 
     private void OnDisable()
     {
         inputActions?.Disable();
+        inputActions.Player.Action1.performed -= ctx => FireWeapon();
     }
 
     private void Update()
@@ -79,7 +86,10 @@ public class PlayerController : MonoBehaviour
     {
         movement = inputActions.Player.Move.ReadValue<Vector2>();
     }
-
+    private void FireWeapon()
+    {
+        weapon?.Fire();
+    }
     private void Move()
     {
         Vector2 newPosition = rb.position + movement * (moveSpeed * Time.fixedDeltaTime);

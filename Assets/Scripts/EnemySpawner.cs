@@ -16,7 +16,7 @@ public class EnemySpawner : MonoBehaviour
         timer += Time.deltaTime;
         bossTimer += Time.deltaTime;
 
-        if (bossTimer >= 60f && !bossSpawned)
+        if (bossTimer >= 15f && !bossSpawned)
         {
             SpawnBoss();
             bossSpawned = true;
