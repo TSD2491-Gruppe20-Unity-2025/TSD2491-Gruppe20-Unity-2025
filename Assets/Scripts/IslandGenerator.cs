@@ -4,7 +4,7 @@ public class IslandGenerator : MonoBehaviour
 {
     [Header("Island Settings")]
     public GameObject[] islandPrefabs; // Dra inn prefab-varianter i Inspector
-    public float spawnInterval = 2f; //TODO: Gjør spawnintervallet tilfeldig, og la øyer som spawner for nært unngå kollisjon
+    public float spawnInterval = 4f; //TODO: Gjør spawnintervallet tilfeldig, og la øyer som spawner for nært unngå kollisjon
     public float fallSpeed = 2f;
     public float spawnXMin = -8f;
     public float spawnXMax = 8f;
@@ -33,7 +33,7 @@ public class IslandGenerator : MonoBehaviour
 
         GameObject prefab = islandPrefabs[Random.Range(0, islandPrefabs.Length)];
 
-        // Pick a random slot index and convert to world space
+        // Sørger for at øya spawner i kontekst av 16x16 pixel tiles
         int slotIndex = Random.Range(minSlotX, maxSlotX + 1);
         float snappedX = slotIndex * tileSize;
 

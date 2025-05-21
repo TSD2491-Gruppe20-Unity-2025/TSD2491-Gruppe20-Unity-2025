@@ -1,16 +1,63 @@
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public abstract class EnemyController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int health = 1;
+    private Dictionary<GameObject, float> lastDamageTime = new();
+    public float contactDamageCooldown = 1f;
+
+    public virtual void TakeDamage(int amount)
     {
-        
+        health -= amount;
+        Debug.Log("Enemy hit! Remaining HP: " + health);
+        if (health <= 0)
+        {
+            Die();
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    protected virtual void Die()
     {
-        
+        Destroy(gameObject);
+    }
+
+    protected virtual void OnTriggerEnter2D(Collider2D other)
+    {
+        HandleHit(other);
+    }
+
+    protected virtual void OnTriggerStay2D(Collider2D other)
+    {
+        HandleHit(other);
+    }
+
+    private void HandleHit(Collider2D other)
+    {
+        // Hit by bullet
+        if (other.CompareTag("PlayerBullet"))
+        {
+            TakeDamage(1);
+            Destroy(other.gameObject);
+        }
+
+        // Touched by player
+        if (other.CompareTag("Player"))
+        {
+            GameObject player = other.gameObject;
+
+            if (!lastDamageTime.ContainsKey(player)) lastDamageTime[player] = -100f;
+
+            if (Time.time - lastDamageTime[player] >= contactDamageCooldown)
+            {
+                PlayerController pc = player.GetComponent<PlayerController>();
+                if (pc != null)
+                {
+                    pc.TakeDamage(1);   // Damage the player
+                    TakeDamage(1);      // Damage the enemy
+                    lastDamageTime[player] = Time.time;
+                }
+            }
+        }
     }
 }

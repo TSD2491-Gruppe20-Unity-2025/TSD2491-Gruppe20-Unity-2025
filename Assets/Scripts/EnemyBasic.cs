@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class EnemyBasic : MonoBehaviour
+public class EnemyBasic : EnemyController
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public float speed = 2f;
+
     void Start()
     {
-        
+        health = 3;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        transform.Translate(Vector2.down * speed * Time.deltaTime);
+
+        if (transform.position.y < Camera.main.ViewportToWorldPoint(Vector2.zero).y - 1f)
+            Destroy(gameObject);
     }
 }
