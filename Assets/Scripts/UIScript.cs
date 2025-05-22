@@ -3,14 +3,27 @@ using UnityEngine.UI;
 
 public class UIScript : MonoBehaviour
 {
+    //-----------------------------------------------------------------------------//
+    // Inspector References
+
     [SerializeField] private Image healthBarFill;
+
+    //-----------------------------------------------------------------------------//
+    // Private Fields
+
     private int maxHealth;
+
+    //-----------------------------------------------------------------------------//
+    // Initialization
 
     public void Initialize(int max)
     {
         maxHealth = max;
-        SetHealth(max); // set full health initially
+        SetHealth(max); // Set full health initially
     }
+
+    //-----------------------------------------------------------------------------//
+    // UI Update
 
     public void SetHealth(int currentHealth)
     {

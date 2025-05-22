@@ -2,11 +2,17 @@ using UnityEngine;
 
 public class EnemyBasic : EnemyController
 {
+    //-----------------------------------------------------------------------------//
+    // Movement and Firing Settings
+
     public float speed = 2f;
 
     private BaseWeapon baseWeapon;
     private float fireInterval = 1f;
     private float nextFireTime;
+
+    //-----------------------------------------------------------------------------//
+    // Unity Methods
 
     void Start()
     {
@@ -19,18 +25,20 @@ public class EnemyBasic : EnemyController
 
     void Update()
     {
-        // Move downwards
+        // Move enemy downward
         transform.Translate(Vector2.down * speed * Time.deltaTime);
 
-        // Fire weapon every 1 second
+        // Fire weapon at regular intervals
         if (baseWeapon != null && Time.time >= nextFireTime)
         {
             baseWeapon.Fire();
             nextFireTime = Time.time + fireInterval;
         }
 
-        // Destroy if below the bottom of the screen
+        // Destroy enemy if it goes off screen (below the view)
         if (transform.position.y < Camera.main.ViewportToWorldPoint(Vector2.zero).y - 1f)
+        {
             Destroy(gameObject);
+        }
     }
 }
