@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     [Header("Enemy and World Generation")]
     public GameObject enemySpawnerPrefab;
     public GameObject islandGeneratorPrefab;
+    public GameObject itemGeneratorPrefab;
 
     //-----------------------------------------------------------------------------//
     // Private Fields
@@ -28,6 +29,7 @@ public class GameController : MonoBehaviour
     private PlayerController player2;
     private GameObject enemySpawner;
     private GameObject islandGenerator;
+    private GameObject itemGenerator;
 
     //-----------------------------------------------------------------------------//
     // Unity Methods
@@ -58,6 +60,12 @@ public class GameController : MonoBehaviour
         if (islandGeneratorPrefab != null)
         {
             islandGenerator = Instantiate(islandGeneratorPrefab, Vector3.zero, Quaternion.identity);
+        }
+
+        // Instantiate Item generator
+        if (itemGeneratorPrefab != null)
+        {
+            itemGenerator = Instantiate(itemGeneratorPrefab, Vector3.zero, Quaternion.identity);
         }
 
         // Instantiate enemy spawner

@@ -19,6 +19,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public int maxHealth = 9;
     [SerializeField] public int startHealth = 9;
 
+    [Header("Weapon Upgrades")]
+    public bool doubleShotEnabled = false;
+
+
     [Header("UI")]
     [SerializeField] public UIScript uiScript;
 
@@ -89,16 +93,38 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Vector2 newPosition = rb.position + movement * (moveSpeed * Time.fixedDeltaTime);
-        newPosition.x = Mathf.Clamp(newPosition.x, minBounds.x, maxBounds.x);
-        newPosition.y = Mathf.Clamp(newPosition.y, minBounds.y, maxBounds.y);
-        rb.MovePosition(newPosition);
+        //MOVEMENT FORWARD AND SIDEWAYS
+        Vector2 Position = rb.position + movement * (moveSpeed * Time.fixedDeltaTime);
+
+        // Restrict movement to camera bounds
+        float cameraHeight = Camera.main.orthographicSize * 2;
+        float cameraWidth = cameraHeight * Camera.main.aspect;
+
+        float minX = -cameraWidth / 2;
+        float maxX = cameraWidth / 2;
+        float minY = -Camera.main.orthographicSize;
+        float maxY = Camera.main.orthographicSize;
+
+        Position.x = Mathf.Clamp(Position.x, minX, maxX);
+        Position.y = Mathf.Clamp(Position.y, minY, maxY);
+
+        rb.MovePosition(Position);
     }
 
     private void FireWeapon()
     {
-        weapon?.Fire();
+        if (weapon == null) return;
+
+        if (doubleShotEnabled)
+        {
+            (weapon as BaseWeapon)?.FireDouble();
+        }
+        else
+        {
+            weapon.Fire();
+        }
     }
+
 
     //-----------------------------------------------------------------------------//
     // Fly-in Effect
@@ -159,6 +185,16 @@ public class PlayerController : MonoBehaviour
             uiScript.SetHealth(CurrentHealth);
         }
     }
+
+    public void Heal(int amount)
+    {
+        CurrentHealth = Mathf.Clamp(CurrentHealth + amount, 0, maxHealth);
+        Debug.Log("Player healed! Current HP: " + CurrentHealth);
+
+        uiScript?.SetHealth(CurrentHealth);
+        HealthChanged?.Invoke(CurrentHealth);
+    }
+
 
     //-----------------------------------------------------------------------------//
     // Collision Handling

@@ -2,15 +2,24 @@ using UnityEngine;
 
 public class AdvancedUpgradeWeapon : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject turretPrefab;
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        
+        if (other.CompareTag("Player"))
+        {
+            Transform player = other.transform;
+
+            if (turretPrefab != null)
+            {
+                // Spawn turret slightly above the player's position
+                Vector3 spawnOffset = new Vector3(0, -0.2f, 0); // Adjust Y as needed
+                GameObject turret = Instantiate(turretPrefab, player.position + spawnOffset, Quaternion.identity);
+
+                turret.transform.SetParent(player); // Attach to player
+            }
+
+            Destroy(gameObject); // Destroy pickup
+        }
     }
 }
