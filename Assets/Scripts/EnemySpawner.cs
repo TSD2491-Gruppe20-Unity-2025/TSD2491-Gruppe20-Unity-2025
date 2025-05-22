@@ -6,6 +6,8 @@ public class EnemySpawner : MonoBehaviour
     // Enemy Prefabs
 
     public GameObject basicEnemyPrefab;
+    public GameObject basicSmallEnemyPrefab;
+
     public GameObject bossEnemyPrefab;
 
     //-----------------------------------------------------------------------------//
@@ -37,6 +39,7 @@ public class EnemySpawner : MonoBehaviour
         if (!bossSpawned && timer >= spawnInterval)
         {
             SpawnBasicEnemy();
+            SpawnBasicSmallEnemy();
             timer = 0f;
         }
     }
@@ -49,6 +52,12 @@ public class EnemySpawner : MonoBehaviour
         Vector2 camTop = Camera.main.ViewportToWorldPoint(new Vector2(Random.Range(0.1f, 0.9f), 1));
         Vector3 spawnPos = new Vector3(camTop.x, camTop.y + 1f, 0);
         Instantiate(basicEnemyPrefab, spawnPos, Quaternion.identity);
+    }
+        void SpawnBasicSmallEnemy()
+    {
+        Vector2 camTop = Camera.main.ViewportToWorldPoint(new Vector2(Random.Range(0.1f, 0.9f), 1));
+        Vector3 spawnPos = new Vector3(camTop.x, camTop.y + 1f, 0);
+        Instantiate(basicSmallEnemyPrefab, spawnPos, Quaternion.identity);
     }
 
     void SpawnBoss()

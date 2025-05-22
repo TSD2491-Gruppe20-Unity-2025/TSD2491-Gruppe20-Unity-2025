@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject playerUI;
 
     [SerializeField] private float moveSpeed = 1f;
+    [SerializeField] private InputActionAsset inputAsset;
     [SerializeField] private Vector2 minBounds;
     [SerializeField] private Vector2 maxBounds;
     [SerializeField] private float contactDamageCooldown = 1f;
@@ -38,6 +39,12 @@ public class PlayerController : MonoBehaviour
     private BaseWeapon weapon;
     private bool canMove = false;
 
+
+    protected InputActionMap actionMap;
+    protected InputAction moveAction;
+    protected InputAction action1;
+    protected InputAction action2;
+
     //-----------------------------------------------------------------------------//
     // Events
 
@@ -47,31 +54,50 @@ public class PlayerController : MonoBehaviour
     //-----------------------------------------------------------------------------//
     // Unity Methods
 
-    private void Awake()
+    protected virtual string ActionMapName => "PlayerOne";
+
+    protected virtual void Awake()
     {
-        inputActions = new InputSystem_Actions();
         rb = GetComponent<Rigidbody2D>();
         weapon = GetComponent<BaseWeapon>();
         CurrentHealth = Mathf.Clamp(startHealth, 0, maxHealth);
-    }
-
-    private void OnEnable()
-    {
-        inputActions?.Enable();
-        inputActions.Player.Action1.performed += ctx => FireWeapon();
-    }
-
-    private void OnDisable()
-    {
-        inputActions?.Disable();
-        inputActions.Player.Action1.performed -= ctx => FireWeapon();
-    }
-
-    private void Update()
-    {
-        if (canMove)
+        if (inputAsset == null)
         {
-            PlayerInput();
+            Debug.LogError("Input Action Asset is not assigned!");
+            return;
+        }
+
+        if (inputAsset != null)
+        {
+            actionMap = inputAsset.FindActionMap(ActionMapName);
+            Debug.LogError($"Action Map: {actionMap} not found in Input Asset: {inputAsset}");
+            moveAction = actionMap.FindAction("Move");
+            action1 = actionMap.FindAction("Action1");
+            action2 = actionMap.FindAction("Action2");
+        }
+    }
+
+    protected virtual void OnEnable()
+    {
+        actionMap?.Enable();
+
+        if (action1 != null) action1.performed += OnAction1Performed;
+        if (action2 != null) action2.performed += OnAction2Performed;
+    }
+
+    protected virtual void OnDisable()
+    {
+        if (action1 != null) action1.performed -= OnAction1Performed;
+        if (action2 != null) action2.performed -= OnAction2Performed;
+
+        actionMap?.Disable();
+    }
+
+    protected virtual void Update()
+    {
+        if (canMove && moveAction != null)
+        {
+            movement = moveAction.ReadValue<Vector2>();
         }
     }
 
@@ -81,6 +107,16 @@ public class PlayerController : MonoBehaviour
         {
             Move();
         }
+    }
+
+    protected virtual void OnAction1Performed(InputAction.CallbackContext ctx)
+    {
+        FireWeapon();
+    }
+
+    protected virtual void OnAction2Performed(InputAction.CallbackContext ctx)
+    {
+        PerformAction2();
     }
 
     //-----------------------------------------------------------------------------//
@@ -124,6 +160,11 @@ public class PlayerController : MonoBehaviour
             weapon.Fire();
         }
     }
+    protected virtual void PerformAction2()
+    {
+        Debug.Log($"Action 2 triggered for: {gameObject.name}");
+    }
+
 
 
     //-----------------------------------------------------------------------------//
@@ -170,8 +211,7 @@ public class PlayerController : MonoBehaviour
 
         if (CurrentHealth <= 0)
         {
-            Time.timeScale = 0f;
-            Debug.Log("Game Over! Game stopped.");
+            Destroy(gameObject);
         }
     }
 

@@ -15,6 +15,7 @@ public class BaseWeapon : Weapon
     public string ownerTag;        // Tag of the shooter (e.g., "Player" or "Enemy")
     public string projectileTag;   // Tag to assign to the projectile (e.g., "PlayerBullet")
     public Transform FirePoint => firePoint;
+    private PlayerController playerOwner; // ✅ Reference to shooter
 
     //-----------------------------------------------------------------------------//
     // Unity Methods
@@ -61,7 +62,7 @@ public class BaseWeapon : Weapon
 
         if (proj != null)
         {
-            proj.Initialize(ownerTag, directionOverride);
+            proj.Initialize(ownerTag, playerOwner, directionOverride);
         }
 
         bullet.tag = projectileTag;
@@ -80,13 +81,13 @@ public class BaseWeapon : Weapon
         // Left bullet
         GameObject bullet1 = Instantiate(projectilePrefab, leftOffset, Quaternion.identity);
         Projectile proj1 = bullet1.GetComponent<Projectile>();
-        if (proj1 != null) proj1.Initialize(ownerTag, null);
+        if (proj1 != null) proj1.Initialize(ownerTag, playerOwner, null);
         bullet1.tag = projectileTag;
 
         // Right bullet
         GameObject bullet2 = Instantiate(projectilePrefab, rightOffset, Quaternion.identity);
         Projectile proj2 = bullet2.GetComponent<Projectile>();
-        if (proj2 != null) proj2.Initialize(ownerTag, null);
+        if (proj2 != null) proj2.Initialize(ownerTag, playerOwner, null);
         bullet2.tag = projectileTag;
 
         lastFireTime = Time.time;

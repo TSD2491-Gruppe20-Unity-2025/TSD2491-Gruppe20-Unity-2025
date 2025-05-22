@@ -1,16 +1,12 @@
 using UnityEngine;
 
-public class PlayerTwo : MonoBehaviour
+public class PlayerTwo : PlayerController
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    protected override string ActionMapName => "Player2";
 
-    // Update is called once per frame
-    void Update()
+    protected override void PerformAction2()
     {
-        
+        base.PerformAction2();
+        Debug.Log("PlayerOne specific Action2 logic here.");
     }
 }

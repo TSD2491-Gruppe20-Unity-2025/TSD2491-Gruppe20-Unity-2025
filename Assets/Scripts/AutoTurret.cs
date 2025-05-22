@@ -9,6 +9,9 @@ public class AutoTurret : MonoBehaviour
 
     private float lastFireTime = 0f;
 
+    private PlayerController playerOwner; // ✅ Reference to shooter
+
+
     void Update()
     {
         GameObject target = FindClosestEnemy();
@@ -47,7 +50,7 @@ public class AutoTurret : MonoBehaviour
         Projectile proj = bullet.GetComponent<Projectile>();
         if (proj != null)
         {
-            proj.Initialize("Player", direction); // Assume "Player" bullets
+            proj.Initialize("Player", playerOwner, direction); // Assume "Player" bullets
         }
 
         bullet.tag = "PlayerBullet";
