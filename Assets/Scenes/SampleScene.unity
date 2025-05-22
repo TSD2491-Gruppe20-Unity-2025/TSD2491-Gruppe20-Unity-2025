@@ -387,6 +387,7 @@ MonoBehaviour:
   player2UI: {fileID: 0}
   enemySpawnerPrefab: {fileID: 5468249111063919779, guid: 1dbb209374d446143ad83f2ff8bb4065, type: 3}
   islandGeneratorPrefab: {fileID: 6534298802335825950, guid: 87c9c53291818fd4da2e3f70e0be12d8, type: 3}
+  itemGeneratorPrefab: {fileID: 0}
 --- !u!4 &1100025435
 Transform:
   m_ObjectHideFlags: 0
@@ -481,6 +482,100 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1420006056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1420006058}
+  - component: {fileID: 1420006057}
+  m_Layer: 0
+  m_Name: SFXManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1420006057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420006056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d054c0e74c330224e908ee667f505289, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxEntries:
+  - sfxEvent: 0
+    clip: {fileID: 8300000, guid: 8bde96cc0b2e7134595675d0c1ad2f70, type: 3}
+  - sfxEvent: 1
+    clip: {fileID: 8300000, guid: acbd173c04fb6a54cab0023600c7f0d0, type: 3}
+  - sfxEvent: 2
+    clip: {fileID: 8300000, guid: e25cde81c7755a34dab06f87e22dbf40, type: 3}
+  - sfxEvent: 3
+    clip: {fileID: 8300000, guid: b80ef72831ecc9e4fbcf66342fc0a986, type: 3}
+  - sfxEvent: 4
+    clip: {fileID: 8300000, guid: 24ede332c332b6941911c6d62cdeb6c8, type: 3}
+  - sfxEvent: 5
+    clip: {fileID: 8300000, guid: 9a53fdfa2a3429c4582be6577a29c93b, type: 3}
+  - sfxEvent: 6
+    clip: {fileID: 8300000, guid: e68c0f6134379d94980b06d23ef75521, type: 3}
+  - sfxEvent: 7
+    clip: {fileID: 8300000, guid: b80ef72831ecc9e4fbcf66342fc0a986, type: 3}
+  - sfxEvent: 8
+    clip: {fileID: 8300000, guid: d9d8b792f753ab0448abd1e00b1f633d, type: 3}
+  - sfxEvent: 9
+    clip: {fileID: 8300000, guid: 27855acb88ff61848b7c917463ee9713, type: 3}
+  - sfxEvent: 10
+    clip: {fileID: 8300000, guid: 512ab114282765c449d973eeb910eaab, type: 3}
+  - sfxEvent: 11
+    clip: {fileID: 8300000, guid: f1a3a5a94fa8527409740bbbee252bf0, type: 3}
+  - sfxEvent: 12
+    clip: {fileID: 8300000, guid: 783cbf33c8c1e5e45b997d89b36aed99, type: 3}
+  - sfxEvent: 13
+    clip: {fileID: 8300000, guid: 3135684713209834e84a95e015381963, type: 3}
+  - sfxEvent: 14
+    clip: {fileID: 8300000, guid: aad08f5c82b70dc45b73639aeb3e33fc, type: 3}
+  - sfxEvent: 15
+    clip: {fileID: 8300000, guid: 2f5942aabc2773b47ae70e1af9b939b8, type: 3}
+  - sfxEvent: 16
+    clip: {fileID: 8300000, guid: e2b8001460f9d394e869c3e415ecb4f2, type: 3}
+  - sfxEvent: 17
+    clip: {fileID: 8300000, guid: f976b485afa176a458b4e2f222d80e06, type: 3}
+  - sfxEvent: 18
+    clip: {fileID: 8300000, guid: 17684bdfddc7070498bd8aa742c7bce6, type: 3}
+  - sfxEvent: 19
+    clip: {fileID: 8300000, guid: c919ca975201ee94fbf795efad8d3df8, type: 3}
+  - sfxEvent: 20
+    clip: {fileID: 8300000, guid: 9294c1ce92c2a4b4d93576ab73e2143d, type: 3}
+  - sfxEvent: 21
+    clip: {fileID: 8300000, guid: dfa10a439d642c44980c0853aae782bb, type: 3}
+  - sfxEvent: 22
+    clip: {fileID: 8300000, guid: 8573170c3fb04ba459df47b470477117, type: 3}
+  sfxSource: {fileID: 0}
+  musicSource: {fileID: 0}
+  uiSource: {fileID: 0}
+--- !u!4 &1420006058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420006056}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.203247, y: -5.7637634, z: -0.13143037}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1989167251 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7394497309447216049, guid: f643ffcbd76bf15418f21e9dc8823066, type: 3}
@@ -500,3 +595,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1100025435}
   - {fileID: 467246050}
+  - {fileID: 1420006058}
