@@ -151,6 +151,7 @@ public class GameController : MonoBehaviour
 
     private void SpawnPlayer1()
     {
+        SFXManager.Instance.Play(SFXEvent.PlayerJoinS);
         Vector2 start = new Vector2(-3f, -10f);
         GameObject p1 = Instantiate(playerOnePrefab, start, Quaternion.identity);
         player1 = p1.GetComponent<PlayerOne>();
@@ -161,6 +162,7 @@ public class GameController : MonoBehaviour
 
     private void SpawnPlayer2()
     {
+        SFXManager.Instance.Play(SFXEvent.PlayerJoinS);
         Vector2 start = new Vector2(3f, -10f);
         GameObject p2 = Instantiate(playerTwoPrefab, start, Quaternion.identity);
         player2 = p2.GetComponent<PlayerTwo>();

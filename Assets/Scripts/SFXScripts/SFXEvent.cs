@@ -13,7 +13,7 @@ public enum SFXEvent
     PowerupPickup3S,//10
     GameOverS,//11
     VictoryS,//12
-    Player2JoinS,//13
+    PlayerJoinS,//13
     Level1S,//14
     Level2S,//15
     Level3S,//16

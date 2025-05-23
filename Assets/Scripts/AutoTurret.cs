@@ -18,6 +18,7 @@ public class AutoTurret : MonoBehaviour
         if (target != null && Time.time >= lastFireTime + fireRate)
         {
             FireAt(target);
+            SFXManager.Instance.Play(SFXEvent.Gun3S);
             lastFireTime = Time.time;
         }
     }

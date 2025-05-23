@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class IntroMusicPlayer : MonoBehaviour
 {
@@ -8,8 +9,10 @@ void Start()
 
     if (SFXManager.Instance != null)
     {
+        if(SceneManager.GetActiveScene().buildIndex == 0) SFXManager.Instance.PlayMusic(SFXEvent.Level5S);
+        if(SceneManager.GetActiveScene().buildIndex == 1) SFXManager.Instance.PlayMusic(SFXEvent.IntroMusicS);
+        if(SceneManager.GetActiveScene().buildIndex == 7) SFXManager.Instance.PlayMusic(SFXEvent.Level1S);
         Debug.Log("Trying to play IntroMusicS...");
-        SFXManager.Instance.PlayMusic(SFXEvent.IntroMusicS);
     }
     else
     {

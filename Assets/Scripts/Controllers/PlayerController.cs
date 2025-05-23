@@ -257,6 +257,7 @@ private IEnumerator DoClunkyLoop()
 
         if (CurrentHealth <= 0)
         {
+            SFXManager.Instance.Play(SFXEvent.PlayerDeathS);
             Destroy(gameObject);
         }
     }

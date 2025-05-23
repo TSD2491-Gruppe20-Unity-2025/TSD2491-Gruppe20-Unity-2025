@@ -54,9 +54,9 @@ public class EnemyBoss : EnemyController
         }
     }
 
-    // ✅ OVERRIDE Die to register boss kill and extra points
     protected override void Die(PlayerController killer)
     {
+        SFXManager.Instance.Play(SFXEvent.PlayerDeathS);
         GameController.Instance.RegisterEnemyKill(killer); // regular point
         GameController.Instance.RegisterEnemyKill(killer); // extra point
         GameController.Instance.OnBossDefeated(); // signal level end

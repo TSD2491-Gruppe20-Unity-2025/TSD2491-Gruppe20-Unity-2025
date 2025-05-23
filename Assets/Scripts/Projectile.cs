@@ -37,7 +37,8 @@ public class Projectile : MonoBehaviour
                 EnemyController enemy = other.GetComponent<EnemyController>();
                 if (enemy != null)
                 {
-                    enemy.TakeDamage(1, shooter); // ✅ Register kill with shooter
+                    enemy.TakeDamage(1, shooter);
+                    SFXManager.Instance.Play(SFXEvent.EnemyHitS);
                 }
             }
             else if (targetTag == "Player")
@@ -46,9 +47,9 @@ public class Projectile : MonoBehaviour
                 if (player != null)
                 {
                     player.TakeDamage(1);
+                    SFXManager.Instance.Play(SFXEvent.PlayerHitS);
                 }
             }
-
             Destroy(gameObject);
         }
     }

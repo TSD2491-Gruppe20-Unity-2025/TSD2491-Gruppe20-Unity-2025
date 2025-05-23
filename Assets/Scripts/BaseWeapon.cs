@@ -47,11 +47,13 @@ public class BaseWeapon : Weapon
 
     public override void Fire()
     {
+        SFXManager.Instance.Play(SFXEvent.PrimaryFireS);
         Fire(null);
     }
 
     public void Fire(Vector2? directionOverride)
     {
+
         // Cooldown check
         if (Time.time < lastFireTime + fireCooldown) return;
         if (projectilePrefab == null || firePoint == null) return;
@@ -90,6 +92,8 @@ public class BaseWeapon : Weapon
         if (proj2 != null) proj2.Initialize(ownerTag, playerOwner, null);
         bullet2.tag = projectileTag;
 
+        SFXManager.Instance.Play(SFXEvent.Gun2S);
+        
         lastFireTime = Time.time;
     }
 

@@ -4,7 +4,7 @@ public class LevelMusicPlayer : MonoBehaviour
 {
     void Start()
     {
-        switch (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex)
+        switch (UnityEngine.SceneManagement.SceneManager.GetActiveScene().buildIndex-1)
         {
             case 1: // Assuming Level 1 is at build index 1
                 SFXManager.Instance.PlayMusic(SFXEvent.Level1S);

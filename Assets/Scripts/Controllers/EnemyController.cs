@@ -11,6 +11,7 @@ public abstract class EnemyController : MonoBehaviour
     public void TakeDamage(int damage, PlayerController attacker)
     {
         health -= damage;
+        SFXManager.Instance.Play(SFXEvent.EnemyHitS);
         if (health <= 0)
         {
             Die(attacker);
@@ -20,6 +21,7 @@ public abstract class EnemyController : MonoBehaviour
     protected virtual void Die(PlayerController killer)
     {
         GameController.Instance.RegisterEnemyKill(killer);
+        SFXManager.Instance.Play(SFXEvent.EnemyDeathS);
         Destroy(gameObject);
     }
 
