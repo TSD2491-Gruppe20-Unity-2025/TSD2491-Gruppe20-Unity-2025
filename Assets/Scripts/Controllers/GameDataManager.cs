@@ -10,6 +10,8 @@ public class GameDataManager : MonoBehaviour
     public bool player1Alive = false;
     public bool player2Alive = false;
 
+    public int scenenumber = 0;
+
     private void Awake()
     {
         if (Instance == null)
