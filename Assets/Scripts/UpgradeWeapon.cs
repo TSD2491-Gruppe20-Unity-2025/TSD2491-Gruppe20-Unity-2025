@@ -1,19 +1,19 @@
 using UnityEngine;
 
-public class UpgradeWeapon : MonoBehaviour
+public class UpgradeWeapon : Weapon
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    protected override void ApplyUpgrade(GameObject player)
     {
-        if (other.CompareTag("Player"))
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        if (playerController != null)
         {
-            PlayerController player = other.GetComponent<PlayerController>();
-            if (player != null)
-            {
-                player.doubleShotEnabled = true;
-                Debug.Log("Double Shot Activated!");
-            }
-
-            Destroy(gameObject); // Remove upgrade pickup
+            playerController.doubleShotEnabled = true;
+            Debug.Log("Double Shot Activated!");
         }
+    }
+
+    public override void Fire()
+    {
+        // Optionally implement if this upgrade type needs to fire
     }
 }
