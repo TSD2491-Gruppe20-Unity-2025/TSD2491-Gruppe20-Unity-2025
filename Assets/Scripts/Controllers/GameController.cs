@@ -226,6 +226,8 @@ public class GameController : MonoBehaviour
 
     public void LoadNextLevel()
     {
+        SFXManager.Instance.StopMusic();
+
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
@@ -236,6 +238,8 @@ public class GameController : MonoBehaviour
         {
             endScreenTitleText.text = "You have vanquished all enemies!";
             Debug.Log("No more levels to load.");
+
+            SFXManager.Instance.Play(SFXEvent.VictoryS);
         }
     }
 }

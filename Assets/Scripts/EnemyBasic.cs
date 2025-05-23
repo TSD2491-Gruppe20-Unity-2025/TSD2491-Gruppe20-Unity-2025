@@ -32,6 +32,7 @@ public class EnemyBasic : EnemyController
         if (baseWeapon != null && Time.time >= nextFireTime)
         {
             baseWeapon.Fire();
+            SFXManager.Instance.Play(SFXEvent.EnemyFireS);
             nextFireTime = Time.time + fireInterval;
         }
 

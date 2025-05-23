@@ -40,6 +40,7 @@ public class SFXManager : MonoBehaviour
         {
             sfxDict[entry.sfxEvent] = entry.clip;
         }
+        PlayMusic(SFXEvent.IntroMusicS);//temp, remove later
     }
 
     public void Play(SFXEvent evt)

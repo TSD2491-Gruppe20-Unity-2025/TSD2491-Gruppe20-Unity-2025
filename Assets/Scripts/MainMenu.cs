@@ -40,6 +40,8 @@ public class MainMenu : MonoBehaviour
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
+        SFXManager.Instance.PlayUI(SFXEvent.StartButtonClickS);
+
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
             SceneManager.LoadScene(nextSceneIndex);
