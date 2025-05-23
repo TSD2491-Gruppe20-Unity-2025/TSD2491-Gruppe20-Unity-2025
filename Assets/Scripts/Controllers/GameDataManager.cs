@@ -7,7 +7,7 @@ public class GameDataManager : MonoBehaviour
     public int credits = 0;
     public int scoreP1 = 0;
     public int scoreP2 = 0;
-    public bool player1Alive = false;
+    public bool player1Alive = true; //Start the game with player 1 alive
     public bool player2Alive = false;
 
     public int scenenumber = 0;

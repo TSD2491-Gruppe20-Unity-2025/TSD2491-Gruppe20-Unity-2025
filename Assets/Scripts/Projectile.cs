@@ -28,31 +28,41 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+private void OnTriggerEnter2D(Collider2D other)
+{
+    if (other.CompareTag(targetTag))
     {
-        if (other.CompareTag(targetTag))
+        if (targetTag == "Enemy")
         {
-            if (targetTag == "Enemy")
+            // Boss check first (inherits from EnemyController)
+            EnemyBoss boss = other.GetComponent<EnemyBoss>();
+            if (boss != null)
+            {
+                boss.TakeDamage(1, shooter);
+            }
+            else
             {
                 EnemyController enemy = other.GetComponent<EnemyController>();
                 if (enemy != null)
                 {
                     enemy.TakeDamage(1, shooter);
-                    SFXManager.Instance.Play(SFXEvent.EnemyHitS);
                 }
             }
-            else if (targetTag == "Player")
-            {
-                PlayerController player = other.GetComponent<PlayerController>();
-                if (player != null)
-                {
-                    player.TakeDamage(1);
-                    SFXManager.Instance.Play(SFXEvent.PlayerHitS);
-                }
-            }
-            Destroy(gameObject);
         }
+        else if (targetTag == "Player")
+        {
+            PlayerController player = other.GetComponent<PlayerController>();
+            if (player != null)
+            {
+                player.TakeDamage(1);
+            }
+        }
+
+        Destroy(gameObject);
     }
+}
+
+
 
     public void Initialize(string shooterTag, PlayerController shooterRef, Vector2? customDirection = null)
     {

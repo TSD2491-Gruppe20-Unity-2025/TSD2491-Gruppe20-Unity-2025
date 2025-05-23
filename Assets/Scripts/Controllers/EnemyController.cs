@@ -3,10 +3,12 @@ using UnityEngine;
 
 public abstract class EnemyController : MonoBehaviour
 {
-    public int health = 1;
+    [SerializeField]
+    public int health;
+
     public float contactDamageCooldown = 1f;
 
-    private Dictionary<GameObject, float> lastDamageTime = new();
+    protected Dictionary<GameObject, float> lastDamageTime = new();
 
     public void TakeDamage(int damage, PlayerController attacker)
     {

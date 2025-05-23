@@ -51,6 +51,7 @@ public class AutoTurret : MonoBehaviour
         Projectile proj = bullet.GetComponent<Projectile>();
         if (proj != null)
         {
+            playerOwner = GetComponent<PlayerController>();
             proj.Initialize("Player", playerOwner, direction); // Assume "Player" bullets
         }
 

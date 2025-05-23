@@ -11,6 +11,16 @@ public class IntroVideoPlayer : MonoBehaviour
         videoPlayer.loopPointReached += OnVideoEnd;
         videoPlayer.Play();
     }
+    void Update()
+{
+        if (Input.anyKeyDown)
+        {
+            videoPlayer.Stop();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
+    }
+}
+
 
     void OnVideoEnd(VideoPlayer vp)
     {
@@ -18,7 +28,7 @@ public class IntroVideoPlayer : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        else if (SceneManager.GetActiveScene().buildIndex == 5)
+        else if (SceneManager.GetActiveScene().buildIndex == 7)
         {
             SceneManager.LoadScene(1);
         }

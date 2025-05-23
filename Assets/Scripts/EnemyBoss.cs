@@ -5,6 +5,7 @@ public class EnemyBoss : EnemyController
     public float enterSpeed = 1.5f;
     public float moveSpeed = 2f;
     public float moveRange = 6f;
+    public int startingHealth = 10;
 
     private BaseWeapon baseWeapon;
     private float fireInterval = 1.0f;
@@ -13,9 +14,14 @@ public class EnemyBoss : EnemyController
     private bool hasEntered = false;
     private float direction = 1f;
 
+    private void Awake()
+    {
+        if (health <= 0)
+            health = startingHealth;
+    }
+
     private void Start()
     {
-        health = 15;
         startPos = transform.position;
         baseWeapon = GetComponent<BaseWeapon>();
         nextFireTime = Time.time + fireInterval;
@@ -57,9 +63,9 @@ public class EnemyBoss : EnemyController
     protected override void Die(PlayerController killer)
     {
         SFXManager.Instance.Play(SFXEvent.PlayerDeathS);
-        GameController.Instance.RegisterEnemyKill(killer); // regular point
-        GameController.Instance.RegisterEnemyKill(killer); // extra point
-        GameController.Instance.OnBossDefeated(); // signal level end
+        GameController.Instance.RegisterEnemyKill(killer);
+        GameController.Instance.RegisterEnemyKill(killer); // Bonus kill point
+        GameController.Instance.OnBossDefeated();
         Destroy(gameObject);
     }
 }

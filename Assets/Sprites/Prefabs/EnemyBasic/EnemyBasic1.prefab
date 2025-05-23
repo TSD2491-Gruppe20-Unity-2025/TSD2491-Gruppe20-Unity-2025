@@ -133,6 +133,7 @@ MonoBehaviour:
   health: 1
   contactDamageCooldown: 1
   speed: 3
+  startingHealth: 3
 --- !u!61 &4433403201656875099
 BoxCollider2D:
   m_ObjectHideFlags: 0

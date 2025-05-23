@@ -79,6 +79,8 @@ public class BaseWeapon : Weapon
 
         Vector3 leftOffset = firePoint.position + new Vector3(-0.3f, 0, 0);
         Vector3 rightOffset = firePoint.position + new Vector3(0.3f, 0, 0);
+        playerOwner = GetComponent<PlayerController>();
+
 
         // Left bullet
         GameObject bullet1 = Instantiate(projectilePrefab, leftOffset, Quaternion.identity);
