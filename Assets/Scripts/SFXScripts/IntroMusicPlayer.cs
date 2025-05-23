@@ -3,20 +3,30 @@ using UnityEngine.SceneManagement;
 
 public class IntroMusicPlayer : MonoBehaviour
 {
-void Start()
-{
-    Debug.Log("IntroMusicPlayer is running...");
+    void Start()
+    {
+        Debug.Log("IntroMusicPlayer is running...");
 
-    if (SFXManager.Instance != null)
-    {
-        if(SceneManager.GetActiveScene().buildIndex == 0) SFXManager.Instance.PlayMusic(SFXEvent.Level5S);
-        if(SceneManager.GetActiveScene().buildIndex == 1) SFXManager.Instance.PlayMusic(SFXEvent.IntroMusicS);
-        if(SceneManager.GetActiveScene().buildIndex == 7) SFXManager.Instance.PlayMusic(SFXEvent.Level1S);
-        Debug.Log("Trying to play IntroMusicS...");
+        if (SFXManager.Instance != null)
+        {
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SFXManager.Instance.StopMusic(); // Stop leftover music if any
+
+            switch (sceneIndex)
+            {
+                case 0: // Intro video
+                    SFXManager.Instance.PlayMusic(SFXEvent.Level1S);
+                    break;
+                case 1: // Main Menu
+                    SFXManager.Instance.PlayMusic(SFXEvent.IntroMusicS);
+                    break;
+            }
+
+            Debug.Log("Correct music triggered.");
+        }
+        else
+        {
+            Debug.LogWarning("SFXManager not found in scene!");
+        }
     }
-    else
-    {
-        Debug.LogWarning("SFXManager not found in scene!");
-    }
-}
 }
