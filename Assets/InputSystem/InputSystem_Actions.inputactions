@@ -588,6 +588,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Action2",
+                    "type": "Button",
+                    "id": "6825a211-5ad7-4146-abaa-32a4e3126cc2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -942,6 +951,17 @@
                     "action": "Action1",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "584694c1-c778-48ed-9e75-828e6df20f35",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -1034,6 +1054,15 @@
                     "name": "Action1",
                     "type": "Button",
                     "id": "bdc05207-23c5-4cfe-8b59-c76dbd35a74e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Action2",
+                    "type": "Button",
+                    "id": "5e36b80d-614a-46e2-8645-3bc697da6ea8",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -1390,6 +1419,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Action1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0a57969c-ab7f-450c-82c0-d689ce6998b9",
+                    "path": "<Keyboard>/period",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Action2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
