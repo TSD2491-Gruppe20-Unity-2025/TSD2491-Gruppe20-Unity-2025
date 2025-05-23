@@ -191,13 +191,15 @@ MonoBehaviour:
   - sfxEvent: 18
     clip: {fileID: 8300000, guid: 17684bdfddc7070498bd8aa742c7bce6, type: 3}
   - sfxEvent: 19
-    clip: {fileID: 8300000, guid: c919ca975201ee94fbf795efad8d3df8, type: 3}
+    clip: {fileID: 8300000, guid: e5ae887d682ca7a45b58a192a57ae4d0, type: 3}
   - sfxEvent: 20
     clip: {fileID: 8300000, guid: 9294c1ce92c2a4b4d93576ab73e2143d, type: 3}
   - sfxEvent: 21
     clip: {fileID: 8300000, guid: dfa10a439d642c44980c0853aae782bb, type: 3}
   - sfxEvent: 22
     clip: {fileID: 8300000, guid: 8573170c3fb04ba459df47b470477117, type: 3}
+  - sfxEvent: 23
+    clip: {fileID: 8300000, guid: 1b73260b8d201bb438fb9da5f9c5356e, type: 3}
   sfxSource: {fileID: 49235989}
   musicSource: {fileID: 49235988}
   uiSource: {fileID: 49235987}

@@ -110,6 +110,7 @@ public class GameController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             credits++;
+            SFXManager.Instance.Play(SFXEvent.InsertCoinsS);
             UpdateCreditsUI();
         }
     }

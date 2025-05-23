@@ -23,4 +23,5 @@ public enum SFXEvent
     StartButtonClickS,//20
     UISoundS,//21
     IntroMusicS,//22
+    InsertCoinsS //23
 }

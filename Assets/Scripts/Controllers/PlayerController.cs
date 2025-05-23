@@ -167,6 +167,7 @@ public class PlayerController : MonoBehaviour
 
         if (!isLooping && canLoop)
         {
+            SFXManager.Instance.Play(SFXEvent.SpinAnimationS);
             StartCoroutine(DoClunkyLoop());
         }
     }

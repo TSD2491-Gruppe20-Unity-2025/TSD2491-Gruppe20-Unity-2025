@@ -7,6 +7,7 @@ public class UpgradeWeapon : Weapon
         PlayerController playerController = player.GetComponent<PlayerController>();
         if (playerController != null)
         {
+            SFXManager.Instance.Play(SFXEvent.PowerupPickup2S);
             playerController.doubleShotEnabled = true;
             Debug.Log("Double Shot Activated!");
         }

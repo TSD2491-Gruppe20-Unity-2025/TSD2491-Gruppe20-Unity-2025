@@ -14,6 +14,7 @@ public class ItemBehavior : MonoBehaviour
             if (player != null)
             {
                 player.Heal(healAmount);
+                SFXManager.Instance.Play(SFXEvent.PowerupPickupS);
             }
 
             Destroy(gameObject);
