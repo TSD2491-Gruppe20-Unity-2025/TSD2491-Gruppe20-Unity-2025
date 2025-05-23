@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6534298802335825950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5422318162739025196}
+  - component: {fileID: 4918900355567199593}
+  m_Layer: 0
+  m_Name: IslandGenerator5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5422318162739025196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534298802335825950}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.762146, y: 8.281708, z: 848.98083}
+  m_LocalScale: {x: 0.96625, y: 0.96625, z: 0.96625}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4918900355567199593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534298802335825950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e943fcbd18e74f7d9e6b54d0b786cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  islandPrefabs:
+  - {fileID: 6144823746632024806, guid: 1b4a83f622b58430baa2decfe9b89612, type: 3}
+  - {fileID: 4438023570786193256, guid: 66b22301e16e246adac61413af2ccc19, type: 3}
+  - {fileID: 8535857950847331264, guid: 57ca88a520dc04296bea7f5428d253dd, type: 3}
+  - {fileID: 5283421451277296671, guid: 57ba9fd2309cb4fcbb55501e96d326ca, type: 3}
+  - {fileID: 2426184972441166870, guid: 51bf5754e75004f3aa34d528ca8524ed, type: 3}
+  - {fileID: 1537050205476070464, guid: 37ce59276f4594d708dabf8725720fcf, type: 3}
+  - {fileID: 5681481001959053141, guid: eff042feeffdf4a3384403a1e53d6aba, type: 3}
+  spawnInterval: 4
+  fallSpeed: 2
+  spawnXMin: -8
+  spawnXMax: 8
+  spawnY: 10
+  destroyY: -10
+  tileSize: 1
+  minSlotX: -8
+  maxSlotX: 8

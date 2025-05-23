@@ -3,38 +3,29 @@ using UnityEngine;
 
 public abstract class EnemyController : MonoBehaviour
 {
-    //-----------------------------------------------------------------------------//
-    // Enemy Configuration
+    [SerializeField]
+    public int health;
 
-    public int health = 1;
     public float contactDamageCooldown = 1f;
 
-    //-----------------------------------------------------------------------------//
-    // Private Fields
+    protected Dictionary<GameObject, float> lastDamageTime = new();
 
-    private Dictionary<GameObject, float> lastDamageTime = new();
-
-    //-----------------------------------------------------------------------------//
-    // Damage Handling
-
-    public virtual void TakeDamage(int amount)
+    public void TakeDamage(int damage, PlayerController attacker)
     {
-        health -= amount;
-        Debug.Log("Enemy hit! Remaining HP: " + health);
-
+        health -= damage;
+        SFXManager.Instance.Play(SFXEvent.EnemyHitS);
         if (health <= 0)
         {
-            Die();
+            Die(attacker);
         }
     }
 
-    protected virtual void Die()
+    protected virtual void Die(PlayerController killer)
     {
+        GameController.Instance.RegisterEnemyKill(killer);
+        SFXManager.Instance.Play(SFXEvent.EnemyDeathS);
         Destroy(gameObject);
     }
-
-    //-----------------------------------------------------------------------------//
-    // Collision Handling
 
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
@@ -48,7 +39,6 @@ public abstract class EnemyController : MonoBehaviour
 
     private void HandleHit(Collider2D other)
     {
-        // Handle player collision
         if (other.CompareTag("Player"))
         {
             GameObject player = other.gameObject;
@@ -61,12 +51,7 @@ public abstract class EnemyController : MonoBehaviour
                 PlayerController pc = player.GetComponent<PlayerController>();
                 if (pc != null)
                 {
-                    // Optional: damage the player
-                    // pc.TakeDamage(1);
-
-                    // Self-damage on contact
-                    TakeDamage(1);
-
+                    TakeDamage(1, pc);  // Pass attacker here!
                     lastDamageTime[player] = Time.time;
                 }
             }

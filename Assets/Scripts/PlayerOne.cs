@@ -1,16 +1,8 @@
 using UnityEngine;
 
-public class PlayerOne : MonoBehaviour
+public class PlayerOne : PlayerController
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    protected override string ActionMapName => "Player1";
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

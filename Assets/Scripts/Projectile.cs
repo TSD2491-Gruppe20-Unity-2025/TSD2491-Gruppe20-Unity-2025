@@ -2,32 +2,25 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    //-----------------------------------------------------------------------------//
-    // Projectile Properties
-
     public float speed = 20f;
     public Vector2 direction = Vector2.zero;
     public string targetTag;
 
-    private Camera mainCamera;
+    public float damage = 1f;
+    public PlayerController shooter; // ✅ Shooter reference for kill credit
 
-    //-----------------------------------------------------------------------------//
-    // Unity Methods
+    private Camera mainCamera;
 
     private void Start()
     {
         mainCamera = Camera.main;
-
-        // Apply initial rotation based on direction
         RotateToDirection();
     }
 
-    void Update()
+    private void Update()
     {
-        // Move the projectile in its set direction
         transform.Translate(direction * speed * Time.deltaTime, Space.World);
 
-        // Despawn if outside the screen bounds
         Vector3 viewPos = mainCamera.WorldToViewportPoint(transform.position);
         if (viewPos.x < 0 || viewPos.x > 1 || viewPos.y < 0 || viewPos.y > 1)
         {
@@ -35,61 +28,64 @@ public class Projectile : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+private void OnTriggerEnter2D(Collider2D other)
+{
+    if (other.CompareTag(targetTag))
     {
-        // Detect collision with target tag
-        if (other.CompareTag(targetTag))
+        if (targetTag == "Enemy")
         {
-            EnemyController enemy = other.GetComponent<EnemyController>();
-            if (enemy != null)
+            // Boss check first (inherits from EnemyController)
+            EnemyBoss boss = other.GetComponent<EnemyBoss>();
+            if (boss != null)
             {
-                enemy.TakeDamage(1);
+                boss.TakeDamage(1, shooter);
             }
-
+            else
+            {
+                EnemyController enemy = other.GetComponent<EnemyController>();
+                if (enemy != null)
+                {
+                    enemy.TakeDamage(1, shooter);
+                }
+            }
+        }
+        else if (targetTag == "Player")
+        {
             PlayerController player = other.GetComponent<PlayerController>();
             if (player != null)
             {
                 player.TakeDamage(1);
             }
-
-            Destroy(gameObject);
         }
+
+        Destroy(gameObject);
     }
+}
 
-    //-----------------------------------------------------------------------------//
-    // Public Methods
 
-    // Initialize projectile properties
-    public void Initialize(string shooterTag, Vector2? customDirection = null)
+
+    public void Initialize(string shooterTag, PlayerController shooterRef, Vector2? customDirection = null)
     {
+        shooter = shooterRef;
+
         if (customDirection.HasValue)
         {
             direction = customDirection.Value.normalized;
         }
-        else if (shooterTag == "Player")
-        {
-            direction = Vector2.up;
-        }
-        else if (shooterTag == "Enemy" || shooterTag == "EnemyBoss")
-        {
-            direction = Vector2.down;
-        }
         else
         {
-            direction = Vector2.zero;
+            direction = shooterTag switch
+            {
+                "Player" => Vector2.up,
+                "Enemy" or "EnemyBoss" => Vector2.down,
+                _ => Vector2.up
+            };
         }
 
-        // Set appropriate target tag
-        if (shooterTag == "Player")
-            targetTag = "Enemy";
-        else
-            targetTag = "Player";
+        targetTag = shooterTag == "Player" ? "Enemy" : "Player";
 
         RotateToDirection();
     }
-
-    //-----------------------------------------------------------------------------//
-    // Helper Methods
 
     private void RotateToDirection()
     {

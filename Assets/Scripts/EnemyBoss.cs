@@ -2,12 +2,10 @@ using UnityEngine;
 
 public class EnemyBoss : EnemyController
 {
-    //-----------------------------------------------------------------------------//
-    // Movement and Firing Settings
-
     public float enterSpeed = 1.5f;
     public float moveSpeed = 2f;
     public float moveRange = 6f;
+    public int startingHealth = 10;
 
     private BaseWeapon baseWeapon;
     private float fireInterval = 1.0f;
@@ -16,22 +14,23 @@ public class EnemyBoss : EnemyController
     private bool hasEntered = false;
     private float direction = 1f;
 
-    //-----------------------------------------------------------------------------//
-    // Unity Methods
-
-    void Start()
+    private void Awake()
     {
-        health = 15;
+        if (health <= 0)
+            health = startingHealth;
+    }
+
+    private void Start()
+    {
         startPos = transform.position;
         baseWeapon = GetComponent<BaseWeapon>();
         nextFireTime = Time.time + fireInterval;
     }
 
-    void Update()
+    private void Update()
     {
         if (!hasEntered)
         {
-            // Entering screen movement (move downward)
             transform.Translate(Vector2.down * enterSpeed * Time.deltaTime);
 
             if (transform.position.y <= Camera.main.ViewportToWorldPoint(new Vector2(0, 0.8f)).y)
@@ -42,13 +41,11 @@ public class EnemyBoss : EnemyController
         }
         else
         {
-            // Horizontal oscillation movement
             transform.position += Vector3.right * direction * moveSpeed * Time.deltaTime;
 
             if (Mathf.Abs(transform.position.x - startPos.x) > moveRange)
                 direction *= -1f;
 
-            // Fire at player at regular intervals
             if (baseWeapon != null && Time.time >= nextFireTime)
             {
                 GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -61,5 +58,14 @@ public class EnemyBoss : EnemyController
                 nextFireTime = Time.time + fireInterval;
             }
         }
+    }
+
+    protected override void Die(PlayerController killer)
+    {
+        SFXManager.Instance.Play(SFXEvent.PlayerDeathS);
+        GameController.Instance.RegisterEnemyKill(killer);
+        GameController.Instance.RegisterEnemyKill(killer); // Bonus kill point
+        GameController.Instance.OnBossDefeated();
+        Destroy(gameObject);
     }
 }

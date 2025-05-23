@@ -2,27 +2,19 @@ using UnityEngine;
 
 public abstract class Weapon : MonoBehaviour
 {
-    //-----------------------------------------------------------------------------//
-    // Protected Fields
-
     protected GameObject projectilePrefab;
     protected Transform firePoint;
     protected string targetTag;
     protected float fireCooldown = 0.1f;
     protected float lastFireTime;
 
-    //-----------------------------------------------------------------------------//
-    // Unity Methods
-
     protected virtual void Awake()
     {
-        // Set default firePoint if not overridden
         firePoint = transform;
     }
 
     protected virtual void Start()
     {
-        // Assign target tag based on object's own tag
         switch (gameObject.tag)
         {
             case "Player":
@@ -37,8 +29,19 @@ public abstract class Weapon : MonoBehaviour
         }
     }
 
-    //-----------------------------------------------------------------------------//
-    // Abstract Method
-
     public abstract void Fire();
+
+    protected virtual void ApplyUpgrade(GameObject player)
+    {
+        // Override in derived classes to apply upgrade
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            ApplyUpgrade(other.gameObject);
+            Destroy(gameObject);
+        }
+    }
 }

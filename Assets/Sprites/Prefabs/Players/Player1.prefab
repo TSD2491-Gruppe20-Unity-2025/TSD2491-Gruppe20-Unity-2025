@@ -9,11 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7774399595960019922}
-  - component: {fileID: 3000983764163777554}
   - component: {fileID: 3289274825510623707}
   - component: {fileID: 4829469459295135316}
   - component: {fileID: 9134662902825821896}
   - component: {fileID: 2921252907040411453}
+  - component: {fileID: 8355579074133862843}
   m_Layer: 3
   m_Name: Player1
   m_TagString: Player
@@ -36,26 +36,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3000983764163777554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8252014161694782153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80aefbfc34406d843b1a183425fd531e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerUI: {fileID: 0}
-  moveSpeed: 10
-  minBounds: {x: -99, y: -99}
-  maxBounds: {x: 99, y: 99}
-  contactDamageCooldown: 1
-  maxHealth: 9
-  startHealth: 9
-  uiScript: {fileID: 0}
 --- !u!50 &3289274825510623707
 Rigidbody2D:
   serializedVersion: 5
@@ -127,7 +107,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8383162673023287823, guid: 5365809277b61e44fa7c2e18b817c621, type: 3}
+  m_Sprite: {fileID: -6877657737085974523, guid: 5365809277b61e44fa7c2e18b817c621, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -201,3 +181,25 @@ MonoBehaviour:
   overrideCooldown: 0.1
   ownerTag: 
   projectileTag: 
+--- !u!114 &8355579074133862843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8252014161694782153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3893fc0f6c041449a84ce491ee61e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerUI: {fileID: 0}
+  moveSpeed: 8
+  inputAsset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  minBounds: {x: 0, y: 0}
+  maxBounds: {x: 0, y: 0}
+  contactDamageCooldown: 1
+  maxHealth: 9
+  startHealth: 9
+  doubleShotEnabled: 0
+  uiScript: {fileID: 0}
